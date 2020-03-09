@@ -32,7 +32,7 @@ public class FilePartReader{
             fileContent.append(line);
             fileContent.append("\n");
         }
-        return fileContent.toString();
+        return fileContent.toString().trim();
     }
 
     public String readLines () throws IOException {
@@ -42,8 +42,9 @@ public class FilePartReader{
         for (int i = 0; i < lines.length; i++){
             if (i+1 >= fromLine && i+1 <= toLine){
                 narrowedFileContent.append(lines[i]);
+                narrowedFileContent.append(" ");
             }
         }
-        return narrowedFileContent.toString();
+        return narrowedFileContent.toString().trim();
     }
 }

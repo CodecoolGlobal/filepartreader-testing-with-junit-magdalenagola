@@ -23,7 +23,7 @@ public class FileWordAnalyzer{
         List<String> words = turnStringIntoListOfWords();
         List<String> wordsContainingSubstring = new ArrayList<>();
         for (String word : words){
-            if(word.contains(subString)){
+            if(word.toLowerCase().contains(subString.toLowerCase())){
                 wordsContainingSubstring.add(word);
             }
         }
@@ -47,6 +47,7 @@ public class FileWordAnalyzer{
     }
 
     private boolean checkIfPalindrome(String word){
+        word = word.toLowerCase();
         int i1 = 0;
         int i2 = word.length();
         while (i2 > i1){
