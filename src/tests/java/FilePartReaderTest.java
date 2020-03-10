@@ -6,8 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FilePartReaderTest {
 
-    //TODO shouldEqualsIgnoreCase
-
     FilePartReader filePartReader = new FilePartReader();
 
     @Test

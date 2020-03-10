@@ -13,13 +13,16 @@ public class FileWordAnalyzer{
 
     public List getWordsOrderedAlphabetically () throws IOException {
         List<String> words = turnStringIntoListOfWords();
-        java.util.Collections.sort(words);
+        java.util.Collections.sort(words, String.CASE_INSENSITIVE_ORDER);
         return words;
     }
 
 
 
     public List getWordsContainingSubstring (String subString) throws IOException {
+        if (subString.isEmpty()){
+            return null;
+        }
         List<String> words = turnStringIntoListOfWords();
         List<String> wordsContainingSubstring = new ArrayList<>();
         for (String word : words){
@@ -49,11 +52,13 @@ public class FileWordAnalyzer{
     private boolean checkIfPalindrome(String word){
         word = word.toLowerCase();
         int i1 = 0;
-        int i2 = word.length();
+        int i2 = word.length() - 1;
         while (i2 > i1){
             if (word.charAt(i1) != word.charAt(i2)){
                 return false;
             }
+            i1++;
+            i2--;
         }
         return true;
     }
